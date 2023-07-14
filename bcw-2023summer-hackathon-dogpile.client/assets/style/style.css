@@ -1,1 +1,12 @@
 /* BASIC STYLES HERE */
+:root {
+  --text: #020401;
+  --background: #e2f5db;
+  --primary: #43cb65;
+  --secondary: #afe9db;
+  --accent: #2ca083;
+}
+
+body {
+  background-color: var(--background);
+}
