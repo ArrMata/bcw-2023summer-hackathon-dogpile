@@ -30,7 +30,14 @@
           <!-- NAVLINKS -->
         </div>
       </div>
-      <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+      <div class="d-flex">
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+          aria-controls="offcanvasExample">
+          Button with data-bs-target
+        </button>
+
+        <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
+      </div>
     </nav>
   </header>
 
@@ -57,7 +64,25 @@
     </section>
 
 
-
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <form onsubmit="app.PostsController.createPost(event)" class="mx-3">
+        <div class="mb-3">
+          <label for="caption" class="form-label">Caption</label>
+          <input required minlength="3" maxlength="150" type="text" class="form-control" name="caption" id="caption"
+            aria-describedby="helpId" placeholder="Caption your photo!">
+        </div>
+        <div class="mb-3">
+          <label for="pictureUrl" class="form-label">Picture URL!</label>
+          <input required minlength="3" maxlength="300" type="text" class="form-control" name="pictureUrl"
+            id="pictureUrl" aria-describedby="helpId" placeholder="Enter Photo URL">
+        </div>
+        <button type="submit" class="btn btn-primary">Post</button>
+      </form>
+    </div>
   </main>
 
   <!-- SECTION -->
