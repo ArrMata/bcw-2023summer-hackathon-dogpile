@@ -10,7 +10,9 @@ class PostServices {
     }
     async getPosts() {
         const res = await api.get('api/dogPosts')
-        console.log(res.data)
+        console.log('[DATA GOT]', res.data)
+        AppState.posts = res.data.map(dogData => new Post(dogData))
+        console.log('[GOT DOGOS]', AppState.posts)
     }
 }
 export const postServices = new PostServices()

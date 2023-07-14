@@ -14,8 +14,9 @@ function _drawPosts() {
 
 export class PostsController {
   constructor() {
-    _drawPosts()
     console.log(`[Post controller]`)
+    this.getPosts()
+    AppState.on('posts', _drawPosts)
   }
 
   async createPost(event) {
