@@ -3,11 +3,11 @@ import { Schema } from "mongoose";
 export const DogPostSchema = new Schema({
   caption: { type: String, required: true, minlength: 3, maxlength: 30 },
   pictureUrl: { type: String, required: true, maxlength: 1000 },
-  accountId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' }
+  posterId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' }
 }, { timestamps: true, toJSON: { virtuals: true } })
 
-DogPostSchema.virtual('account', {
-  localField: 'accountId',
+DogPostSchema.virtual('poster', {
+  localField: 'posterId',
   foreignField: '_id',
   justOne: true,
   ref: 'Account'
