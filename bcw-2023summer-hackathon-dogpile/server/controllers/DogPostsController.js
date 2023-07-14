@@ -7,15 +7,20 @@ export class DogPostsController extends BaseController {
     super('api/dogPosts')
     this.router
       .get('', this.getDogPosts)
-      .get('/:dogPostId', this.dogPostById)
+      .get('/:dogPostId', this.getDogPostById)
 
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createDogPost)
+      .delete('/:dogPostId', this.deleteDogPost)
 
   }
-  dogPostById(req, res, next) {
+  async getDogPostById(req, res, next) {
     try {
-      const dogId = 
+      const dogPostId = req.params.dogPostId
+
+      const dogPost = await dogsPostsService.getDogPostById(dogPostId)
+
+      return res.send(dogPost)
     } catch (error) {
       next(error)
     }
@@ -33,6 +38,16 @@ export class DogPostsController extends BaseController {
       const dogData = req.body
       dogData.posterId = req.userInfo.id
       const dogPost = await dogsPostsService.createDogPost(dogData)
+      return res.send(dogPost)
+    } catch (error) {
+      next(error)
+    }
+  }
+  async deleteDogPost(req, res, next) {
+    try {
+      const dogPostId = req.params.id
+      const userId = req.userInfo.id
+      const dogPost = await dogsPostsService.deleteDogPost(dogPostId, userId)
       return res.send(dogPost)
     } catch (error) {
       next(error)
