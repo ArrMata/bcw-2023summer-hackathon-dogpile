@@ -13,7 +13,7 @@ api.interceptors.request.use(config => config, handleAxiosError)
 api.interceptors.response.use(response => response, handleAxiosError)
 
 function handleAxiosError(error) {
-  debugger
+
   if (error.response) {
     // The request was made and the server responded with a status code
     // that falls out of the range of 2xx

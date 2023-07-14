@@ -45,7 +45,7 @@ export class DogPostsController extends BaseController {
   }
   async deleteDogPost(req, res, next) {
     try {
-      const dogPostId = req.params.id
+      const dogPostId = req.params.dogPostId
       const userId = req.userInfo.id
       const dogPost = await dogsPostsService.deleteDogPost(dogPostId, userId)
       return res.send(dogPost)
