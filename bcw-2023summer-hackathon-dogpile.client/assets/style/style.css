@@ -1,7 +1,10 @@
 /* BASIC STYLES HERE */
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;700&family=Titan+One&display=swap');
+
 :root {
   --text: #020401;
-  --background: #e2f5db;
+  --background: #cedacb;
   --primary: #43cb65;
   --secondary: #afe9db;
   --accent: #2f3d39;
@@ -14,8 +17,39 @@ header {
 
 body {
   background-color: var(--background);
-  color: var(--text)
+  color: var(--text);
+  font-family: 'Dosis', sans-serif;
 }
+
+.brand {
+  font-family: 'Titan One', cursive;
+  color: var(--primary);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.account-name-header {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.offcanvas-glass {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.4px);
+  -webkit-backdrop-filter: blur(5.4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 50vh;
+  box-shadow: #323232 0 0 5px;
+}
+
+.offcanvas-backdrop {
+  background-color: rgba(37, 0, 111, 0.762);
+}
+
+
+/* #region post styles */
 
 .dog-card {
   background-color: var(--secondary);
@@ -24,14 +58,61 @@ body {
   box-shadow: #02040173 5px 5px 20px;
 }
 
+.dog-user {
+  padding: 0.25vw, 0.25vw;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  margin-bottom: .5rem;
+}
+
+.dog-user img {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
 .card-body {
   padding: .5vw .5vh;
 
 }
 
-.dog-card img {
+.dog-img-container {
+  height: 30rem;
+}
+
+.dog-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* #endregion */
+
+/* #region active post styles */
+
+.active-user-img {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.active-user-name {
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+.active-img-container {
+  height: 35rem;
+}
+
+.active-img-container img {
+  object-fit: cover;
+  height: 100%;
   width: 100%;
 }
+
+/* #endregion */
+
+/* #region buttons */
 
 .button-header {
   border: none;
@@ -40,7 +121,11 @@ body {
   margin-right: .5rem;
   border-radius: .5rem;
   transition: all .5s ease;
+}
 
+.button-header span {
+  font-weight: 700;
+  padding: 0 0.25rem;
 }
 
 .button-header:hover {
@@ -49,7 +134,7 @@ body {
 
 .like-button {
   color: rgb(144, 56, 56);
-  background-color: white;
+  background-color: var(--background);
   border: rgb(144, 56, 56) solid 2px;
   width: 3rem;
   height: 3rem;
@@ -60,7 +145,7 @@ body {
 
 .dislike-button {
   color: rgb(25, 25, 77);
-  background-color: white;
+  background-color: var(--background);
   border: rgb(25, 25, 77) solid 2px;
   width: 3rem;
   height: 3rem;
@@ -72,10 +157,23 @@ body {
 
 .dislike-button:hover {
   background-color: rgb(25, 25, 77);
-  color: white;
+  color: var(--background);
 }
 
 .like-button:hover {
   background-color: rgb(144, 56, 56);
-  color: white;
+  color: var(--background);
 }
+
+.post-button {
+  border: none;
+  background-color: var(--primary);
+  color: var(--text);
+  margin-right: .5rem;
+  border-radius: .5rem;
+  font-size: 1.75rem;
+  padding: 0.35vh 1.25vw;
+  transition: all .5s ease;
+}
+
+/* #endregion */

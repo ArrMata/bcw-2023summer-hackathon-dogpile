@@ -80,7 +80,7 @@ function avatarTemplate(account) {
     ? /* html */ `
     <div class="mr-2">
       <img class="rounded-circle" src="${account.picture}" alt="${account.name}" height="45"/>
-      <span class="mx-1">${account.name}</span>
+      <span class="account-name-header mx-1">${account.name}</span>
       </div>`
     : AuthService.loading
       ? /* html */ `
