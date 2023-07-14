@@ -28,14 +28,6 @@ class ObservableAppState extends EventEmitter {
       accountId: '64b17a84b735b6737625ba62'
     })
   ]
-
-  // {
-  //   this.id = data._id
-  //   this.caption = data.caption
-  //   this.pictureUrl = data.pictureUrl
-  //   this.accountId = data.accountId
-  // }
-
   // Used to load initial data
   init() {
 
