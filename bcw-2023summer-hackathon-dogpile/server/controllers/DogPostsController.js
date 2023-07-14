@@ -1,6 +1,7 @@
 import { Auth0Provider } from "@bcwdev/auth0provider"
 import BaseController from "../utils/BaseController.js"
-import { dogsPostsService } from "../services/DogsService.js"
+import { dogsPostsService } from "../services/DogPostsService.js"
+import { dogCommentsService } from "../services/DogCommentsService.js"
 
 export class DogPostsController extends BaseController {
   constructor() {
@@ -8,6 +9,7 @@ export class DogPostsController extends BaseController {
     this.router
       .get('', this.getDogPosts)
       .get('/:dogPostId', this.getDogPostById)
+      .get('/:dogPostId/comments', this.getCommentsByPostId)
 
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createDogPost)
@@ -29,6 +31,15 @@ export class DogPostsController extends BaseController {
     try {
       const dogPosts = await dogsPostsService.getDogPosts()
       return res.send(dogPosts)
+    } catch (error) {
+      next(error)
+    }
+  }
+  async getCommentsByPostId(req, res, next) {
+    try {
+      const postId = req.params.dogPostId
+      const comments = await dogCommentsService.getCommentsByPostId(postId)
+      return res.send(comments)
     } catch (error) {
       next(error)
     }

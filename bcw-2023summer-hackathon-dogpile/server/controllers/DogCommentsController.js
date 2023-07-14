@@ -7,13 +7,26 @@ export class DogCommentsController extends BaseController {
     super('api/dogComments')
     this.router
       .get('', this.getDogComments)
+      .get('/:commentId', this.getCommentById)
+
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createDogComment)
+      .delete('/:commentId', this.removeComment)
+
   }
   async getDogComments(req, res, next) {
     try {
       const dogComments = await dogCommentsService.getDogComments()
       res.send(dogComments)
+    } catch (error) {
+      next(error)
+    }
+  }
+  async getCommentById(req, res, next) {
+    try {
+      const commentId = req.params.commentId
+      const comment = await dogCommentsService.getCommentById(commentId)
+      return res.send(comment)
     } catch (error) {
       next(error)
     }
@@ -24,6 +37,16 @@ export class DogCommentsController extends BaseController {
       commentData.commentorId = req.userInfo.id
       const DogComment = await dogCommentsService.createDogComment(commentData)
       res.send(DogComment)
+    } catch (error) {
+      next(error)
+    }
+  }
+  async removeComment(req, res, next) {
+    try {
+      const commentId = req.params.commentId
+      const removerId = req.userInfo.id
+      const comment = await dogCommentsService.removeComment(commentId, removerId)
+      return res.send(comment)
     } catch (error) {
       next(error)
     }
