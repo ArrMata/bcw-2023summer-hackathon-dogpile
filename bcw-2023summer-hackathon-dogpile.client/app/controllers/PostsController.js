@@ -14,8 +14,9 @@ function _drawPosts() {
 
 export class PostsController {
   constructor() {
-    _drawPosts()
     console.log(`[Post controller]`)
+    this.getPosts()
+    AppState.on('posts', _drawPosts)
   }
 
   async createPost(event) {
@@ -33,6 +34,15 @@ export class PostsController {
   async getPosts() {
     try {
       await postServices.getPosts()
+    } catch (error) {
+      console.log(error)
+      Pop.error(error.message)
+    }
+  }
+
+  async setActivePost(postId) {
+    try {
+      await postServices.setActivePost()
     } catch (error) {
       console.log(error)
       Pop.error(error.message)
