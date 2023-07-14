@@ -1,0 +1,13 @@
+
+  {
+    "name": "bcw-2023summer-hackathon-dogpile",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "npm run setup:server",
+      "setup:app": "npm run setup:server && npm run setup:client",
+      "setup:client": "cd bcw-2023summer-hackathon-dogpile.client && npm i",
+      "setup:server": "cd bcw-2023summer-hackathon-dogpile && npm i",
+      "start": "node bcw-2023summer-hackathon-dogpile/index.js"
+    }
+  }
+  
