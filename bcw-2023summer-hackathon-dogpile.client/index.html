@@ -20,9 +20,6 @@
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
       <a class="navbar-brand" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ml-2">bcw-2023summer-hackathon-dogpile.client</span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +28,6 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <!-- NAVLINKS -->
-          <a href="#/about" class="nav-link">About</a>
         </div>
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
@@ -39,43 +35,33 @@
   </header>
 
   <!-- SECTION -->
-  <main>
-
-    <section id="auth-template">
-      <!-- TODO REMOVE THE AUTH TEMPLATE ONCE YOU VERIFY YOUR AUTH SETTINGS -->
-      <div class="container-fluid">
-        <div class="row my-3">
-          <div class="col-lg-5" id="auth-settings">
-            <div class="card p-2 skeleton-loader">
-              <div class="card-title p-2">
-                <div class="d-flex align-items-center">
-                  <div class="skeleton-loader avatar"></div>
-                  <div class="skeleton-loader text mx-2"></div>
-                </div>
-              </div>
-              <div class="card-body border-top">
-                <div class="skeleton-loader text block"></div>
-                <div class="skeleton-loader text block"></div>
-                <div class="skeleton-loader text block"></div>
-              </div>
-            </div>
+  <main class="container-fluid">
+    <!-- <section id="router-view">
+      primary viewport
+    </section> -->
+    <section class="row" id="posts">
+      <div class="col-3">
+        <div class="card" style="width: 18rem;">
+          <div>Username</div>
+          <img class="card-img-top img-fluid"
+            src="https://images.unsplash.com/photo-1510771463146-e89e6e86560e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80"
+            alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Caption</h5>
+            <p class="card-text"></p>
+            <button class="btn btn-success">Like</button>
+            <button class="btn btn-danger">Dislike</button>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="router-view">
-      <!-- primary viewport -->
-    </section>
 
 
   </main>
 
   <!-- SECTION -->
   <footer class="bg-dark text-light">
-    <div class="text-center no-select">
-      <p class="mb-0"><small>Made with 💖 by CodeWorks</small></p>
-    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
