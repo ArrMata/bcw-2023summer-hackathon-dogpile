@@ -4,9 +4,78 @@
   --background: #e2f5db;
   --primary: #43cb65;
   --secondary: #afe9db;
-  --accent: #2ca083;
+  --accent: #2f3d39;
+}
+
+header {
+  background-color: var(--secondary);
+  margin-bottom: 2rem;
 }
 
 body {
   background-color: var(--background);
+  color: var(--text)
+}
+
+.dog-card {
+  background-color: var(--secondary);
+  border-radius: 15px;
+  padding: .5vw 0;
+  box-shadow: #02040173 5px 5px 20px;
+}
+
+.card-body {
+  padding: .5vw .5vh;
+
+}
+
+.dog-card img {
+  width: 100%;
+}
+
+.button-header {
+  border: none;
+  background-color: var(--primary);
+  color: var(--text);
+  margin-right: .5rem;
+  border-radius: .5rem;
+  transition: all .5s ease;
+
+}
+
+.button-header:hover {
+  background-color: #7de897;
+}
+
+.like-button {
+  color: rgb(144, 56, 56);
+  background-color: white;
+  border: rgb(144, 56, 56) solid 2px;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  border-radius: .5rem;
+  transition: all .25s ease;
+}
+
+.dislike-button {
+  color: rgb(25, 25, 77);
+  background-color: white;
+  border: rgb(25, 25, 77) solid 2px;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  border-radius: .5rem;
+
+  transition: all .25s ease;
+}
+
+.dislike-button:hover {
+  background-color: rgb(25, 25, 77);
+  color: white;
+}
+
+.like-button:hover {
+  background-color: rgb(144, 56, 56);
+  color: white;
 }

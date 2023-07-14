@@ -12,11 +12,17 @@ function _drawPosts() {
   setHTML('posts', template)
 }
 
+function _drawActiveContent() {
+  setHTML('modalGuts', AppState.activePost?.ActiveCardTemplate)
+  console.log('activePost', AppState.activePost);
+}
+
 export class PostsController {
   constructor() {
     console.log(`[Post controller]`)
     this.getPosts()
     AppState.on('posts', _drawPosts)
+    AppState.on('activePost', _drawActiveContent)
   }
 
   async createPost(event) {
@@ -42,7 +48,7 @@ export class PostsController {
 
   async setActivePost(postId) {
     try {
-      await postServices.setActivePost()
+      await postServices.setActivePost(postId)
     } catch (error) {
       console.log(error)
       Pop.error(error.message)

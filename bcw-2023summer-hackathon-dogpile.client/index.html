@@ -18,7 +18,7 @@
 <body>
   <!-- SECTION -->
   <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
+    <nav class="navbar navbar-expand px-2">
       <a class="navbar-brand" href="#">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -31,9 +31,12 @@
         </div>
       </div>
       <div class="d-flex">
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        <button class="button-header" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
           aria-controls="offcanvasExample">
-          Button with data-bs-target
+          <span>
+            Create Post
+            <i class="mdi mdi-plus-circle-outline" mdi-></i>
+          </span>
         </button>
 
         <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
@@ -92,18 +95,26 @@
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+      <div class="modal-content" id="modalGuts">
+        <!-- <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Username</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80"
+              alt="">
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio corporis quam, debitis dolorum unde labore
+              in, minima quod saepe atque sit aliquam animi fuga! Nam consequuntur placeat modi illum magnam.
+            </p>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
