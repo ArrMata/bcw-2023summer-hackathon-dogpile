@@ -18,9 +18,11 @@
 <body>
   <!-- SECTION -->
   <header>
-    <nav class="navbar navbar-expand px-2">
-      <a class="navbar-brand" href="#">
-      </a>
+    <nav class="navbar navbar-expand px-2 d-flex justify-center">
+      <h2 class="brand">
+        <i class="mdi mdi-paw"></i>
+        DOGPILE
+      </h2>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -65,33 +67,34 @@
         </div> -->
       <!-- </div> -->
     </section>
-
-
-
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <form onsubmit="app.PostsController.createPost(event)" class="mx-3">
-        <div class="mb-3">
-          <label for="caption" class="form-label">Caption</label>
-          <input required minlength="3" maxlength="150" type="text" class="form-control" name="caption" id="caption"
-            aria-describedby="helpId" placeholder="Caption your photo!">
-        </div>
-        <div class="mb-3">
-          <label for="pictureUrl" class="form-label">Picture URL!</label>
-          <input required minlength="3" maxlength="300" type="text" class="form-control" name="pictureUrl"
-            id="pictureUrl" aria-describedby="helpId" placeholder="Enter Photo URL">
-        </div>
-        <button type="submit" class="btn btn-primary">Post</button>
-      </form>
-    </div>
   </main>
 
   <!-- SECTION -->
   <footer class="bg-dark text-light">
   </footer>
+
+  <div class="offcanvas offcanvas-end offcanvas-glass" tabindex="-1" id="offcanvasExample"
+    aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Create a Post</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <form onsubmit="app.PostsController.createPost(event)" class="mx-3">
+      <div class="mb-3">
+        <label for="caption" class="form-label">Caption</label>
+        <input required minlength="3" maxlength="150" type="text" class="form-control" name="caption" id="caption"
+          aria-describedby="helpId" placeholder="Caption your photo!">
+      </div>
+      <div class="mb-3">
+        <label for="pictureUrl" class="form-label">Picture URL!</label>
+        <input required minlength="3" maxlength="300" type="text" class="form-control" name="pictureUrl" id="pictureUrl"
+          aria-describedby="helpId" placeholder="Enter Photo URL">
+      </div>
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="post-button">Post</button>
+      </div>
+    </form>
+  </div>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
