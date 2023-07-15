@@ -12,12 +12,13 @@ class DogCommentsService {
     return comment
   }
   async getCommentsByPostId(dogPostId) {
-    const comments = await dbContext.DogComments.find({ postId: dogPostId })
+    const comments = await dbContext.DogComments.find({ postId: dogPostId }).populate('commentor', 'name picture')
     return comments
   }
 
   async createDogComment(commentData) {
     const dogComment = await dbContext.DogComments.create(commentData)
+    await dogComment.populate('commentor', 'name picture')
     return dogComment
   }
   async removeComment(commentId, removerId) {

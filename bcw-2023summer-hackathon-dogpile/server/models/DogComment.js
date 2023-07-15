@@ -21,3 +21,10 @@ DogCommentSchema.virtual('commentor', {
   justOne: true,
   ref: 'Account'
 })
+
+DogCommentSchema.virtual('commentRating', {
+  localField: 'commentorId',
+  foreignField: '_id',
+  count: true,
+  ref: "CommentRating"
+})
