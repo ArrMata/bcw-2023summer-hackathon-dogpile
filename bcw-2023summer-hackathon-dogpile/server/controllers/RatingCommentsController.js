@@ -6,9 +6,28 @@ export class RatingCommentsController extends BaseController {
     constructor() {
         super('api/ratingcomments')
         this.router
+            .get('', this.getRatings)
+            .get('/:ratingId', this.getRatingById)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createRatingComment)
             .delete('/:ratingCommentId', this.removeRatingComment)
+    }
+    async getRatings(req, res, next) {
+        try {
+            const rating = await ratingCommentsService.getRating()
+            return res.sed(rating)
+        } catch (error) {
+            next(error)
+        }
+    }
+    async getRatingById(req, res, next) {
+        try {
+            const ratingId = req.params.id
+            const rating = await ratingCommentsService.getRatingById(ratingId)
+            return res.sed(rating)
+        } catch (error) {
+            next(error)
+        }
     }
 
     async createRatingComment(req, res, next) {

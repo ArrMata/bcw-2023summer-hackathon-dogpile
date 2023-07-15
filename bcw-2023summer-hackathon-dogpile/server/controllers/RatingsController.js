@@ -7,10 +7,30 @@ export class RatingsController extends BaseController {
   constructor() {
     super('api/ratings')
     this.router
+      .get('', this.getRatings)
+      .get('/:ratingId', this.getRatingById)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.createRating)
       .put('/:ratingId', this.updateRating)
       .delete('/:ratingId', this.removeRating)
+  }
+
+  async getRatings(req, res, next) {
+    try {
+      const rating = await ratingService.getRating()
+      return res.send(rating)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getRatingById(req, res, next) {
+    try {
+      const ratingId = req.params.id
+      const rating = await ratingService.getRatingById(ratingId)
+    } catch (error) {
+      next(error)
+    }
   }
 
   async createRating(req, res, next) {

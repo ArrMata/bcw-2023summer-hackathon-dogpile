@@ -25,11 +25,13 @@ DogPostSchema.virtual('likeCount', {
   localField: '_id',
   foreignField: 'postId',
   ref: 'DogRating',
-  count: true
+  count: true,
+  match: { impression: true }
 })
 DogPostSchema.virtual('dislikeCount', {
   localField: '_id',
   foreignField: 'postId',
   ref: 'DogRating',
-  count: true
+  count: true,
+  match: { impression: false }
 })

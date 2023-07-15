@@ -25,16 +25,8 @@ export class Post {
           </div>
           <div class="card-body">
             <h5>${this.caption}</h5>
-            <div class="d-flex justify-content-end">
-              <div>
-                <span class="fs-2">${this.likeCount}</span>
-                <button onclick="app." class="like-button me-3"><i class="mdi mdi-heart"></i></button>
-              </div>
-              <div>
-                <span class="fs-2">${this.dislikeCount}</span>
-                <button class="dislike-button me-3"><i class="mdi mdi-heart-broken"></i></button>
-              </div>
-            </div>
+            <span class="fs-2">${this.likeCount} - </span>
+            <span class="fs-2">${this.dislikeCount}</span>
           </div>
         </div>
       </div>
@@ -57,6 +49,16 @@ export class Post {
       <p class="p-3 mb-0 fs-3">
         ${this.caption}
       </p>
+      <div class="d-flex justify-content-end">
+      <div>
+        <span class="fs-2">${this.likeCount}</span>
+        <button onclick="app.RatingsController.createRating('${this.id}','${true}')" class="like-button me-3"><i class="mdi mdi-heart"></i></button>
+      </div>
+      <div>
+        <span class="fs-2">${this.dislikeCount}</span>
+        <button onclick="app.RatingsController.createRating('${this.id}','${false}')" class="dislike-button me-3"><i class="mdi mdi-heart-broken"></i></button>
+      </div>
+    </div>
     </div>
     <form class="mx-2" onsubmit="app.CommentsController.createComment(event)">
         <div class="d-flex mb-2">

@@ -2,6 +2,7 @@ import { AboutController } from "./controllers/AboutController.js";
 import { CommentsController } from "./controllers/CommentsController.js";
 // import { HomeController } from "./controllers/HomeController.js";
 import { PostsController } from "./controllers/PostsController.js";
+import { RatingsController } from "./controllers/RatingsController.js";
 import { ValuesController } from "./controllers/ValuesController.js";
 import { AboutView } from "./views/AboutView.js";
 
@@ -12,7 +13,7 @@ import { AboutView } from "./views/AboutView.js";
 export const router = [
   {
     path: '',
-    controller: [PostsController, CommentsController],
+    controller: [PostsController, CommentsController, RatingsController],
     view: /*html*/''
   },
   {

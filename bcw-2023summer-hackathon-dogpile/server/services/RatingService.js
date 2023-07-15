@@ -1,7 +1,24 @@
 import { dbContext } from "../db/DbContext.js"
-import { Forbidden } from "../utils/Errors.js"
+import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class RatingService {
+  // async getRatingByPostsAccountId(accountId) {
+  //   const rating = await dbContext.DogRatings.find({ accountId })
+  //   return rating
+  // }
+  // FIXME UNTESTED
+  async getRating() {
+    const rating = await dbContext.DogRatings.find()
+    return rating
+  }
+  // FIXME UNTESTED
+  async getRatingById(ratingId) {
+    const rating = await dbContext.DogRatings.findById(ratingId)
+    if (!rating) {
+      throw new BadRequest("No dog post with that Id found")
+    }
+    return rating
+  }
   async createRating(ratingData) {
     const rating = await dbContext.DogRatings.create(ratingData)
     return rating

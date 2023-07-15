@@ -1,7 +1,20 @@
 import { dbContext } from "../db/DbContext"
-import { Forbidden } from "../utils/Errors"
+import { BadRequest, Forbidden } from "../utils/Errors"
 
 class RatingComments {
+    // FIXME UNTESTED
+    async getRating() {
+        const rating = await dbContext.CommentRatings.find()
+        return rating
+    }
+    // FIXME UNTESTED
+    async getRatingById(ratingId) {
+        const rating = await dbContext.CommentRatings.findById(ratingId)
+        if (!rating) {
+            throw new BadRequest("No dog post with that Id found")
+        }
+        return rating
+    }
     async removeRatingComment(ratingCommentId, accountId) {
         const ratingComment = await dbContext.CommentRatings.findById(ratingCommentId)
         if (ratingComment.accountId != accountId)

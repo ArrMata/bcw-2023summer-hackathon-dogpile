@@ -6,9 +6,13 @@ export class RatingsController {
         console.log('[Ratings controller loaded]')
     }
 
-    async createRating() {
+    async createRating(postId, impression) {
         try {
-            // await ratingsService.getRatings()
+            const data = {}
+            data.impression = impression
+            data.postId = postId
+            await ratingsService.createRatings(data)
+            console.log('[Does this fire on error?]')
         } catch (error) {
             console.log(error)
             Pop.error(error.message)
