@@ -47,6 +47,8 @@ export class Post {
         ${this.caption}
       </p>
     </div>
+    <div id= "commentArea">
+    </div>
     <div class="modal-footer">
     </div>
     `

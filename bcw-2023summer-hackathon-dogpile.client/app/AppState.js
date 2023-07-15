@@ -12,7 +12,11 @@ class ObservableAppState extends EventEmitter {
   account = null
   /** @type {import('./models/Value.js').Value[]} */
   values = loadState('values', [Value])
+
   socketData = []
+
+  /** @type {import('./models/Comment.js').Comment[]} */
+  comments = []
 
   posts = []
 

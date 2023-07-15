@@ -19,6 +19,7 @@ class PostServices {
     async setActivePost(postId) {
         const foundPost = AppState.posts.find(post => post.id == postId)
         AppState.activePost = foundPost
+        console.log('this is my active post', AppState.activePost);
     }
 }
 export const postServices = new PostServices()
