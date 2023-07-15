@@ -47,7 +47,16 @@ export class Post {
         ${this.caption}
       </p>
     </div>
+    <form onsubmit="app.CommentsController.createComment(event)">
+        <div class="form-group">
+          <label for="comment-content"></label>
+          <input type="text" class="form-control" id="comment-content" aria-describedby="commentHelp"
+            placeholder="Comment" minlength="3" maxlength="150" name="content">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     <div id= "commentArea">
+    
     </div>
     <div class="modal-footer">
     </div>
