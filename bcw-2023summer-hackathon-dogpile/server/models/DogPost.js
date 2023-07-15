@@ -15,21 +15,21 @@ DogPostSchema.virtual('poster', {
 
 DogPostSchema.virtual('commentCount', {
   localField: '_id',
-  foreignField: 'dogPostId',
-  justOne: true,
-  // ref: 'Commenter'    **REVIEW - review this at it may need changed
+  foreignField: 'postId',
+  count: true,
+  ref: 'DogComment'
 })
 // below needs reviewed as they will be booleans with default false, but you can only pick one or the other
 
 DogPostSchema.virtual('likeCount', {
   localField: '_id',
-  foreignField: 'dogPostId',
-  // ref: 'Commenter',
+  foreignField: 'postId',
+  ref: 'DogRating',
   count: true
 })
 DogPostSchema.virtual('dislikeCount', {
   localField: '_id',
-  foreignField: 'dogPostId',
-  // ref: 'Commenter',
+  foreignField: 'postId',
+  ref: 'DogRating',
   count: true
 })
