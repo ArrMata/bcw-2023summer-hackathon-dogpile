@@ -11,7 +11,7 @@ class DogsPostsService {
     return dogPost
   }
   async getDogPosts() {
-    const dogPosts = await dbContext.DogPosts.find().populate('poster', 'name picture')
+    const dogPosts = await dbContext.DogPosts.find().populate('poster', 'name picture').populate('commentCount').populate('likeCount').populate('dislikeCount')
     return dogPosts
 
   }
@@ -19,6 +19,7 @@ class DogsPostsService {
     const dogPost = await dbContext.DogPosts.create(dogData)
 
     await dogPost.populate('poster', 'name picture')   // 'account' comes from virtual in dog post schema
+    await dogPost.populate('commentCount')
     return dogPost
   }
 
