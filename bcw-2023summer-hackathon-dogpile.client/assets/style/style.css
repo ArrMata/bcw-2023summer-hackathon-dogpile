@@ -86,6 +86,10 @@ body {
   object-fit: cover;
 }
 
+#commentArea {
+  padding: 0 .5vw;
+}
+
 /* #endregion */
 
 /* #region active post styles */

@@ -9,7 +9,7 @@ export class Comment {
 
   get CommentTemplate() {
     return `
-<p class="fs-4">${this.content}</p>
+  <p class="fs-4">${this.content}</p>
 `
   }
 }

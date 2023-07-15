@@ -5,6 +5,9 @@ export class Post {
     this.pictureUrl = data.pictureUrl
     this.posterName = data.poster.name
     this.posterPicture = data.poster.picture
+    this.likeCount = data.likeCount
+    this.dislikeCount = data.dislikeCount
+    this.commentCount = data.commentCount
   }
 
   get postCardTemplate() {
@@ -22,8 +25,16 @@ export class Post {
           </div>
           <div class="card-body">
             <h5>${this.caption}</h5>
-            <button class="like-button"><i class="mdi mdi-heart"></i></button>
-            <button class="dislike-button"><i class="mdi mdi-heart-broken"></i></button>
+            <div class="d-flex justify-content-end">
+              <div>
+                <span class="fs-2">${this.likeCount}</span>
+                <button onclick="app." class="like-button me-3"><i class="mdi mdi-heart"></i></button>
+              </div>
+              <div>
+                <span class="fs-2">${this.dislikeCount}</span>
+                <button class="dislike-button me-3"><i class="mdi mdi-heart-broken"></i></button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -47,13 +58,12 @@ export class Post {
         ${this.caption}
       </p>
     </div>
-    <form onsubmit="app.CommentsController.createComment(event)">
-        <div class="form-group">
-          <label for="comment-content"></label>
+    <form class="mx-2" onsubmit="app.CommentsController.createComment(event)">
+        <div class="d-flex mb-2">
           <input type="text" class="form-control" id="comment-content" aria-describedby="commentHelp"
             placeholder="Comment" minlength="3" maxlength="150" name="content">
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     <div id= "commentArea">
     
