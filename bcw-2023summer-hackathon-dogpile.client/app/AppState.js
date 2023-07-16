@@ -15,6 +15,8 @@ class ObservableAppState extends EventEmitter {
 
   socketData = []
 
+  accountPostRatings = []
+
   /** @type {import('./models/Comment.js').Comment[]} */
   comments = []
 

@@ -12,11 +12,11 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
-  <title>bcw-2023summer-hackathon-dogpile.client</title>
+  <title>Dogpile</title>
 </head>
 
 <body>
-  <!-- SECTION -->
+  <!-- SECTION Navbar -->
   <header>
     <nav class="navbar navbar-expand px-2 d-flex justify-center">
       <h2 class="brand">
@@ -48,45 +48,12 @@
 
   <!-- SECTION -->
   <main class="container-fluid">
-    <section id="router-view">
-      <!-- primary viewport -->
-    </section>
-
-    <section class="row" id="commentForm">
-
-      <!-- <form onsubmit="app.CommentsController.createComment(event)">
-        <div class="form-group">
-          <label for="comment-content"></label>
-          <input type="text" class="form-control" id="comment-content" aria-describedby="commentHelp"
-            placeholder="Comment" minlength="3" maxlength="150" name="content">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form> -->
-    </section>
-
-
     <section class="row" id="posts">
-      <!-- <div class="col-4"> -->
-      <!-- <div class="card" style="width: 18rem;">
-          <div>Username</div>
-          <img class="card-img-top img-fluid"
-            src="https://images.unsplash.com/photo-1510771463146-e89e6e86560e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80"
-            alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Caption</h5>
-            <p class="card-text"></p>
-            <button class="btn btn-success">Like</button>
-            <button class="btn btn-danger">Dislike</button>
-          </div>
-        </div> -->
-      <!-- </div> -->
+
     </section>
   </main>
 
-  <!-- SECTION -->
-  <footer class="bg-dark text-light">
-  </footer>
-
+  <!-- SECTION Offcanvas / Creating Post Form -->
   <div class="offcanvas offcanvas-end offcanvas-glass" tabindex="-1" id="offcanvasExample"
     aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
@@ -110,8 +77,33 @@
     </form>
   </div>
 
-  <!-- STUB DONT LEAVE -->
+  <!-- SECTION Modal/Active Post location -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" id="modalGuts">
 
+      </div>
+    </div>
+  </div>
+
+
+  <!-- #region Creating Templates (Not actually used within index.html) -->
+
+
+  <!-- SECTION Comment Form Template -->
+  <!-- <section class="row" id="commentForm"> -->
+
+  <!-- <form onsubmit="app.CommentsController.createComment(event)">
+        <div class="form-group">
+          <label for="comment-content"></label>
+          <input type="text" class="form-control" id="comment-content" aria-describedby="commentHelp"
+            placeholder="Comment" minlength="3" maxlength="150" name="content">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form> -->
+  <!-- </section> -->
+
+  <!-- SECTION Active Post Template -->
   <!-- <div class="modal-header pb-2 row">
     <div class="d-flex justify-content-end">
       <img class="rounded-circle active-user-img" src="${this.posterPicture}" alt="${this.posterName}" />
@@ -150,35 +142,9 @@
   <div class="modal-footer">
   </div> -->
 
-  <!-- STUB  DONT LEAVE-->
 
 
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content" id="modalGuts">
-        <!-- <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Username</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80"
-              alt="">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio corporis quam, debitis dolorum unde labore
-              in, minima quod saepe atque sit aliquam animi fuga! Nam consequuntur placeat modi illum magnam.
-            </p>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
-      </div>
-    </div>
-  </div>
+  <!-- #endregion -->
 
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

@@ -48,6 +48,10 @@ body {
   background-color: rgba(37, 0, 111, 0.762);
 }
 
+.modal-content {
+  background-color: var(--secondary);
+}
+
 
 /* #region post styles */
 
@@ -73,8 +77,16 @@ body {
 
 .card-body {
   padding: .5vw .5vh;
-
 }
+
+.post-like-count {
+  color: rgb(144, 56, 56);
+}
+
+.post-dislike-count {
+  color: rgb(25, 25, 77);
+}
+
 
 .dog-img-container {
   height: 30rem;
@@ -105,7 +117,7 @@ body {
 }
 
 .active-img-container {
-  height: 35rem;
+  height: 30rem;
 }
 
 .active-img-container img {
@@ -136,15 +148,60 @@ body {
   background-color: #7de897;
 }
 
-.like-button {
+.rating-switch {
+  position: relative;
+}
+
+.rating-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.like-toggle {
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  bottom: 0;
   color: rgb(144, 56, 56);
-  background-color: var(--background);
   border: rgb(144, 56, 56) solid 2px;
-  width: 3rem;
-  height: 3rem;
-  font-size: 1.5rem;
   border-radius: .5rem;
-  transition: all .25s ease;
+  background-color: var(--secondary);
+  padding: 0 3px;
+  transition: all 0.2s ease;
+}
+
+.like-toggle:hover {
+  color: rgb(232, 93, 93);
+  border: rgb(232, 93, 93) solid 2px;
+}
+
+input:checked+.like-toggle {
+  background-color: rgb(144, 56, 56);
+  color: white;
+}
+
+.dislike-toggle {
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  bottom: 0;
+  color: rgb(25, 25, 77);
+  border: rgb(25, 25, 77) solid 2px;
+  border-radius: .5rem;
+  background-color: var(--secondary);
+  padding: 0 3px;
+  transition: all 0.2s ease;
+}
+
+.dislike-toggle:hover {
+  color: rgb(100, 100, 228);
+  border: rgb(100, 100, 228) solid 2px;
+}
+
+input:checked+.dislike-toggle {
+  background-color: rgb(25, 25, 77);
+  color: white;
 }
 
 .dislike-button {
@@ -161,11 +218,6 @@ body {
 
 .dislike-button:hover {
   background-color: rgb(25, 25, 77);
-  color: var(--background);
-}
-
-.like-button:hover {
-  background-color: rgb(144, 56, 56);
   color: var(--background);
 }
 

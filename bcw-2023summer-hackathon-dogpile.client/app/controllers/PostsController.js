@@ -5,7 +5,6 @@ import { Pop } from "../utils/Pop.js"
 import { setHTML } from "../utils/Writer.js"
 
 function _drawPosts() {
-  console.log('drawing')
   let posts = AppState.posts
   let template = ''
   posts.forEach(p => template += p.postCardTemplate)
@@ -14,7 +13,6 @@ function _drawPosts() {
 
 function _drawActiveContent() {
   setHTML('modalGuts', AppState.activePost?.ActiveCardTemplate)
-  // console.log('activePost', AppState.activePost);
 }
 
 export class PostsController {

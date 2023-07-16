@@ -1,3 +1,6 @@
+import { AppState } from "../AppState.js"
+
+
 export class Post {
   constructor(data) {
     this.id = data._id
@@ -25,8 +28,10 @@ export class Post {
           </div>
           <div class="card-body">
             <h5>${this.caption}</h5>
-            <span class="fs-2">${this.likeCount} - </span>
-            <span class="fs-2">${this.dislikeCount}</span>
+            <div class="px-4 d-flex justify-content-end">
+              <p class="fs-3 me-3"><span class="px-2"><i class="mdi mdi-heart post-like-count"></i></span>${this.likeCount}</p>
+              <p class="fs-3"><span class="px-2"><i class="mdi mdi-heart-broken post-dislike-count"></i></span>${this.dislikeCount}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -46,19 +51,10 @@ export class Post {
       <div class="active-img-container">
         <img src="${this.pictureUrl}" alt="${this.posterName}">
       </div>
-      <p class="p-3 mb-0 fs-3">
-        ${this.caption}
-      </p>
-      <div class="d-flex justify-content-end">
-      <div>
-        <span class="fs-2">${this.likeCount}</span>
-        <button onclick="app.RatingsController.createRating('${this.id}','${true}')" class="like-button me-3"><i class="mdi mdi-heart"></i></button>
+      <p class="p-3 mb-0 fs-3">${this.caption}</p>
+      <div class="d-flex justify-content-end px-3 mb-2">
+        ${this.ComputedLikeSection}
       </div>
-      <div>
-        <span class="fs-2">${this.dislikeCount}</span>
-        <button onclick="app.RatingsController.createRating('${this.id}','${false}')" class="dislike-button me-3"><i class="mdi mdi-heart-broken"></i></button>
-      </div>
-    </div>
     </div>
     <form class="mx-2" onsubmit="app.CommentsController.createComment(event)">
         <div class="d-flex mb-2">
@@ -75,4 +71,76 @@ export class Post {
     `
   }
 
+  get ComputedLikeSection() {
+    const account = AppState.account
+    if (account)
+      return `
+      <div class="me-4">
+      ${this.ComputedLikeButton}
+        <span class="fs-2 ms-1">${this.likeCount}</span>
+      </div>
+      <div class="ms-4">
+        ${this.ComputedDislikeButton}
+        <span class="fs-2 ms-1">${this.dislikeCount}</span>
+      </div>
+      `
+    return `
+      <p class="fs-3 me-3"><span class="px-2"><i class="mdi mdi-heart post-like-count"></i></span>${this.likeCount}</p>
+      <p class="fs-3"><span class="px-2"><i class="mdi mdi-heart-broken post-dislike-count"></i></span>${this.dislikeCount}</p>
+    `
+  }
+
+  get ComputedLikeButton() {
+    const activePost = AppState.activePost
+    const account = AppState.account
+
+    if (!account) {
+      return ``
+    }
+
+    if (activePost && AppState.accountPostRatings.find(rating => rating.postId == activePost.id && rating.impression == true))
+      return `
+      <label class="rating-switch">
+        <input checked id="likeCheckbox" type="checkbox" onChange="app.RatingsController.togglePositiveRating('${this.id}')"/>
+        <span class="like-toggle"><i class="fs-4 mdi mdi-heart"></i></span>
+      </label>
+
+    `
+    return `
+    <label class="rating-switch">
+      <input id="likeCheckbox" type="checkbox" onChange="app.RatingsController.togglePositiveRating('${this.id}')"/>
+      <span class="like-toggle"><i class="fs-4 mdi mdi-heart"></i></span>
+    </label>
+    `
+  }
+
+  get ComputedDislikeButton() {
+    const activePost = AppState.activePost
+    const account = AppState.account
+
+    if (!account) {
+      return ``
+    }
+
+    if (activePost && AppState.accountPostRatings.find(rating => rating.postId == activePost.id && rating.impression == false))
+      return `
+      <label class="rating-switch">
+        <input checked id="dislikeCheckbox" type="checkbox" onChange="app.RatingsController.toggleNegativeRating('${this.id}')"/>
+        <span class="dislike-toggle"><i class="fs-4 mdi mdi-heart-broken"></i></span>
+      </label>
+
+    `
+    return `
+    <label class="rating-switch">
+      <input id="dislikeCheckbox" type="checkbox" onChange="app.RatingsController.toggleNegativeRating('${this.id}')"/>
+      <span class="dislike-toggle"><i class="fs-4 mdi mdi-heart-broken"></i></span>
+    </label>
+    `
+  }
+
 }
+
+
+
+// <button onclick="app.RatingsController.createRating('${this.id}','${true}')" class="like-button me-3"><i class="mdi mdi-heart"></i></button>
+// <button onclick="app.RatingsController.createRating('${this.id}','${false}')" class="dislike-button me-3"><i class="mdi mdi-heart-broken"></i></button>
