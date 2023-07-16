@@ -6,6 +6,7 @@ class PostServices {
 
     async createPost(formData) {
         const res = await api.post('api/dogPosts', formData)
+        console.log(res.data)
         AppState.posts = [...AppState.posts, new Post(res.data)]
         console.log('[NEW DOG POST ADDED]', AppState.posts)
     }

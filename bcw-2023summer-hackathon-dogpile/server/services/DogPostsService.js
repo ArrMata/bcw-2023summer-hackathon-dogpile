@@ -20,6 +20,8 @@ class DogsPostsService {
 
     await dogPost.populate('poster', 'name picture')   // 'account' comes from virtual in dog post schema
     await dogPost.populate('commentCount')
+    await dogPost.populate('likeCount')
+    await dogPost.populate('dislikeCount')
     return dogPost
   }
 

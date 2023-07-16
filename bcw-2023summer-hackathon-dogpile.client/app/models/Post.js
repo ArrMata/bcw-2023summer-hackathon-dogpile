@@ -15,7 +15,7 @@ export class Post {
 
   get postCardTemplate() {
     return `
-    <div class="col-3">
+    <div class="col-3 mb-3">
         <div class="dog-card">
           <div class="dog-user px-2"> 
             <h4>${this.posterName}</h4>
