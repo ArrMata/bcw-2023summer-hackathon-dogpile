@@ -1,6 +1,6 @@
 import { AppState } from "../AppState.js"
 import { Post } from "../models/Post.js"
-import { api } from "./AxiosService.js"
+import { api } from "../controllers/AxiosService.js"
 
 class PostServices {
 

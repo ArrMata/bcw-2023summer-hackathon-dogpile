@@ -61,6 +61,8 @@ export class PostsController {
         return
       }
       await postServices.deletePost(postId)
+      // @ts-ignore
+      bootstrap.Modal.getOrCreateInstance('#exampleModal').hide()
 
     } catch (error) {
       Pop.error(error.message)

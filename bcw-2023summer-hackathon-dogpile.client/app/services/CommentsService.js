@@ -1,6 +1,6 @@
 import { AppState } from "../AppState.js"
 import { Comment } from "../models/Comment.js"
-import { api } from "./AxiosService.js"
+import { api } from "../controllers/AxiosService.js"
 
 class CommentsService {
   async getCommentsByActivePost() {
