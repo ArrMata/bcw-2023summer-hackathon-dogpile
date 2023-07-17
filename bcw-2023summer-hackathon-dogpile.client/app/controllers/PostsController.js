@@ -12,7 +12,7 @@ function _drawPosts() {
 }
 
 function _drawActiveContent() {
-  setHTML('modalGuts', AppState.activePost?.ActiveCardTemplate)
+  setHTML('modalGuts', AppState.activePost.ActiveCardTemplate)
 }
 
 export class PostsController {
