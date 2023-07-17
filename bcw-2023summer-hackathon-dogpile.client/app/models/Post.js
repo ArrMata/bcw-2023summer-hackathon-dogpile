@@ -55,6 +55,9 @@ export class Post {
       <div class="d-flex justify-content-end px-3 mb-2">
         ${this.ComputedLikeSection}
       </div>
+      <div class="p-2 mb-1 fs-3">
+      <button onclick="app.PostsController.deletePost('${this.id}')" class="btn btn-danger">Delete Post</button>
+      </div>
     </div>
     <form class="mx-2" onsubmit="app.CommentsController.createComment(event)">
         <div class="d-flex mb-2">
