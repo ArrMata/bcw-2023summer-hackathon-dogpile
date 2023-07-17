@@ -56,7 +56,7 @@ export class Post {
         ${this.ComputedLikeSection}
       </div>
       <div class="p-2 mb-1 fs-3">
-      <button onclick="app.PostsController.deletePost('${this.id}')" class="btn btn-danger">Delete Post</button>
+      ${this.ComputedDeleteButton}
       </div>
     </div>
     <form class="mx-2" onsubmit="app.CommentsController.createComment(event)">
@@ -91,6 +91,16 @@ export class Post {
       <p class="fs-3 me-3"><span class="px-2"><i class="mdi mdi-heart post-like-count"></i></span>${this.likeCount}</p>
       <p class="fs-3"><span class="px-2"><i class="mdi mdi-heart-broken post-dislike-count"></i></span>${this.dislikeCount}</p>
     `
+  }
+
+  get ComputedDeleteButton() {
+    const account = AppState.account
+    if (account) {
+      return `
+      <button onclick="app.PostsController.deletePost('${this.id}')" class="btn btn-danger">Delete Post</button>
+      `
+    }
+    else return ``
   }
 
   get ComputedLikeButton() {
